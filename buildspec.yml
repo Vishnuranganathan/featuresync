@@ -1,0 +1,30 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      java: openjdk8
+    commands:
+      - echo Nothing to do in the install phase.......
+  pre_build:
+    commands:
+      - echo pre_build 
+  build:
+    commands:
+      - echo Build started on `date`
+  post_build:
+    commands:
+      - echo Post Build starting  on `date`
+      - git --version
+      - pwd
+      - svn checkout  https://code.bms.com/svn/repos/svn_internal_aws_customresource/trunk/CustomResources-Provider/RndPOC/site . --username bmsintegrations --password 764P84BpP1835lvS7PtoX184oP645q --non-interactive --trust-server-cert --force --quiet
+      - ls
+      - git init
+      - git config --global user.email "vishnu.faith@gamil.com" 
+      - git config --global user.name "vishnu ranganathan"
+      - git remote -v
+      - git remote add origin https://vishnu.faith%40gmail.com:Sparrow%400987@github.com/Vishnuranganathan/featuresync.git
+      - git remote -v
+      - git add .
+      - git commit -m "comminting first verison"
+      - git config credential.helper store
+      - git push -u origin master 
